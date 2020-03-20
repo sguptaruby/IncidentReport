@@ -9,6 +9,9 @@
 import UIKit
 import SWRevealViewController
 import CoreLocation
+import GooglePlaces
+import GoogleMaps
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -28,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let UserDefaultsVal = UserDefaults()
         UserDefaultsVal.set("yes", forKey: "login")
         initLocationManager();
+        GMSServices.provideAPIKey(googleApiKey)
+        GMSPlacesClient.provideAPIKey(googleApiKey)
 
 //        showLoginView()
         return true

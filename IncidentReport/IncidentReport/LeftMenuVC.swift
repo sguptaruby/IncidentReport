@@ -92,21 +92,4 @@ extension LeftMenuVC : UITableViewDataSource {
     }
 }
 
-class Common: NSObject {
-class func addMenuNavigationLeftButtonOn(controller: UIViewController)
-{
-    let btnMenu: UIButton! = UIButton(frame: CGRect( x:0, y:0, width:30, height:30));
-    btnMenu .setImage(UIImage(named: "reveal-icon"), for: UIControl.State.normal);
-    btnMenu.addTarget(Common.self, action: #selector(Common.showLeftMenu), for: UIControl.Event.touchUpInside);
-    
-    let barBtnMenu: UIBarButtonItem! = UIBarButtonItem(customView: btnMenu);
-    controller.navigationItem.leftBarButtonItem = barBtnMenu;
-    controller.navigationController?.navigationBar.barTintColor = UIColor.lightGray
-    controller.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-    
-}
-@objc class func showLeftMenu()
-{
-    APPDELEGATE.revealVC.revealToggle(animated: true)
-}
-}
+

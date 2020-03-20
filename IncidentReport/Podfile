@@ -7,6 +7,13 @@ target 'IncidentReport' do
 
   pod 'SWRevealViewController'
   pod 'TPKeyboardAvoiding'
+  pod 'AFNetworking'
+  pod 'GoogleMaps'
+  pod 'GooglePlacePicker'
+  pod 'GooglePlaces'
+  pod 'SDWebImage'
+  pod 'IQKeyboardManagerSwift'
+  pod 'MBProgressHUD'
   
   # Pods for IncidentReport
 
