@@ -1,0 +1,6 @@
+framework module Pods_IncidentReportTests {
+  umbrella header "Pods-IncidentReportTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
