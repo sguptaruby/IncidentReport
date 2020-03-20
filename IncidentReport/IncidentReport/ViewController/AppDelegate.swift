@@ -125,6 +125,9 @@ extension AppDelegate {
             
             print(coord.latitude)
             print(coord.longitude)
+
+            AppManager.share.lat = coord.latitude
+            AppManager.share.long = coord.longitude
         }
     }
     

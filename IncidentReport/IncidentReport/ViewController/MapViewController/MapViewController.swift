@@ -55,7 +55,8 @@ class MapViewController: UIViewController {
     func getAddressApiCall() {
         MapViewModal.share.getFullAddress(lat: AppManager.share.lat, long: AppManager.share.long, vc: self, successClosure: { (data) in
             if let dict = data {
-                print(dict)
+                let address = Address(json: dict as! [String : Any])
+                AppManager.share.strAddress = address?.results.first?.formattedAddress ?? ""
             }
         }) { (error) in
             print(error)
