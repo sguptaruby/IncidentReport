@@ -17,6 +17,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        getAddressApiCall()
+        emailTextField.text = "sumit.thalwal@kmgin.com"
+        passwordTextField.text = "kmg125"
     }
     
     
@@ -38,17 +41,41 @@ class LoginViewController: UIViewController {
 
     @IBAction func btnLoginAction(sender:UIButton) {
         if validationForLogin(){
-            Common.setUserDefault(obj: "yes" as AnyObject, forKey: "login")
+            loginApiCall(email: emailTextField.text!, password: passwordTextField.text!)
+        }
+    }
+    
+    func loginApiCall(email:String,password:String) {
+        let dict = [
+            "UserName":email,
+            "Password":password,
+            "Location":AppManager.share.strAddress,
+            "Latitude":AppManager.share.lat,
+            "Longitude":AppManager.share.long,
+            "Address":"",
+            "DeviceType":"Ios",
+            "DeviceToken":"spectral"
+            ] as [String : Any]
+        LoginViewModal.share.login(param: dict, vc: self, successClosure: { (data) in
+            if let dict = data as? [String:Any] {
+                AppManager.share.user = User(json: dict)
+                Common.saveDict(dict: dict as NSDictionary, key: "user")
+                Common.setUserDefault(obj: "yes" as AnyObject, forKey: "login")
                 APPDELEGATE.showLoginView()
-//            let storyboardMain = UIStoryboard(name: "Main", bundle: nil)
-//            if #available(iOS 13.0, *) {
-//                let vc = storyboardMain.instantiateViewController(withIdentifier: "MapViewController")
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            } else {
-//                // Fallback on earlier versions
-//                let vc = storyboardMain.instantiateViewController(withIdentifier: "MapViewController")
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
+            }
+        }) { (error) in
+            SwAlert.showAlert("Incident Report", message: error, buttonTitle: "OK")
+        }
+    }
+    
+    func getAddressApiCall() {
+        MapViewModal.share.getFullAddress(lat: AppManager.share.lat, long: AppManager.share.long, vc: self, successClosure: { (data) in
+            if let dict = data {
+                let address = Address(json: dict as! [String : Any])
+                AppManager.share.strAddress = address?.results.first?.formattedAddress ?? ""
+            }
+        }) { (error) in
+            print(error)
         }
     }
 

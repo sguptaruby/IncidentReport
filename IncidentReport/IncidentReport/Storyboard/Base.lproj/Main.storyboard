@@ -103,6 +103,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Tgr-bT-A7k"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="OSD-JM-WUz" id="3TW-JJ-kPr"/>
+                        <outlet property="passwordTextField" destination="efI-pX-eit" id="zl9-DQ-xD9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,6 +131,26 @@
                                     <constraint firstAttribute="height" constant="120" id="i3v-u1-THu"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XkA-iE-qvX">
+                                <rect key="frame" x="10" y="577" width="355" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ZC-Rb-csu" customClass="RoundCornerButton" customModule="IncidentReport" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="40"/>
+                                        <state key="normal" title="View issues">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lut-G4-3ch" customClass="RoundCornerButton" customModule="IncidentReport" customModuleProvider="target">
+                                        <rect key="frame" x="182.5" y="0.0" width="172.5" height="40"/>
+                                        <state key="normal" title="Add issue">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AjJ-n3-lcp"/>
+                                </constraints>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="637-r3-TRh">
                                 <rect key="frame" x="325" y="487" width="30" height="40"/>
                                 <constraints>
@@ -143,7 +167,10 @@
                             <constraint firstItem="hDQ-6F-fMn" firstAttribute="bottom" secondItem="GoJ-wg-jFC" secondAttribute="bottom" id="I3w-yf-AQU"/>
                             <constraint firstItem="hDQ-6F-fMn" firstAttribute="bottom" secondItem="5qV-UJ-hMw" secondAttribute="bottom" id="QDZ-Wc-EMZ"/>
                             <constraint firstItem="5qV-UJ-hMw" firstAttribute="leading" secondItem="hDQ-6F-fMn" secondAttribute="leading" id="g12-tm-DWE"/>
+                            <constraint firstItem="hDQ-6F-fMn" firstAttribute="bottom" secondItem="XkA-iE-qvX" secondAttribute="bottom" constant="50" id="jRF-Jt-DEN"/>
+                            <constraint firstItem="XkA-iE-qvX" firstAttribute="leading" secondItem="hDQ-6F-fMn" secondAttribute="leading" constant="10" id="mCe-PX-nL1"/>
                             <constraint firstItem="hDQ-6F-fMn" firstAttribute="trailing" secondItem="5qV-UJ-hMw" secondAttribute="trailing" id="v9t-je-5ai"/>
+                            <constraint firstItem="hDQ-6F-fMn" firstAttribute="trailing" secondItem="XkA-iE-qvX" secondAttribute="trailing" constant="10" id="yxe-XT-hnW"/>
                             <constraint firstItem="5qV-UJ-hMw" firstAttribute="top" secondItem="hDQ-6F-fMn" secondAttribute="top" id="z1V-RY-k5l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hDQ-6F-fMn"/>

@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import SwAlert
 
 class MapViewController: UIViewController {
     
@@ -22,6 +23,7 @@ class MapViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         loadMapView()
+        categoryApiCall()
     }
     
     func loadMapView() {
@@ -60,6 +62,17 @@ class MapViewController: UIViewController {
             }
         }) { (error) in
             print(error)
+        }
+    }
+    
+    func categoryApiCall() {
+        let dict = ["Userid":AppManager.share.user.data.userID]
+        CategoryViewModal.share.getCategory(param: dict, vc: self, successClosure: { (data) in
+            if let dict = data as? [String:Any] {
+                AppManager.share.category = Category(json: dict)
+            }
+        }) { (error) in
+            SwAlert.showAlert("Incident Report", message: error, buttonTitle: "OK")
         }
     }
     

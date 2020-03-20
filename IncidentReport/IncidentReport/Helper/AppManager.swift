@@ -19,7 +19,8 @@ class AppManager {
     lazy var strAddress = ""
     var lat: Double = 0.0
     var long: Double = 0.0
-    
+    var user:User!
+    var category:Category!
     
     
     
