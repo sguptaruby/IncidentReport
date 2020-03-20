@@ -29,7 +29,7 @@ class MapViewController: UIViewController {
     func loadMapView() {
         
         mapView.isMyLocationEnabled = true
-    
+        
         //Location Manager code to fetch current location
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
@@ -74,6 +74,15 @@ class MapViewController: UIViewController {
         }) { (error) in
             SwAlert.showAlert("Incident Report", message: error, buttonTitle: "OK")
         }
+    }
+    
+    @IBAction func btnIssuesListAction(sender:UIButton) {
+        
+    }
+    
+    @IBAction func btnAddIssueAction(sender:UIButton) {
+        let vc = CategoryVC.loadFromNib()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

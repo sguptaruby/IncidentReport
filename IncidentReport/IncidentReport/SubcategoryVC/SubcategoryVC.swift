@@ -7,24 +7,31 @@
 //
 
 import UIKit
+import SwAlert
 
 class SubcategoryVC: UIViewController {
+    
+    var categoryItem: Category.Data!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        subCategoryApiCall()
+    }
+    
+    func subCategoryApiCall() {
+        let dict = ["Userid":AppManager.share.user.data.userID,"CategoryId":categoryItem.categoryID]
+        SubCategoryViewModal.share.getSubCategory(param: dict, vc: self, successClosure: { (data) in
+            if let dict = data as? [String:Any] {
+                AppManager.share.subCategory = SubCategory(json: dict)
+            }
+        }) { (error) in
+            
+        }
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

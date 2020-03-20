@@ -19,4 +19,12 @@ extension UIViewController {
     internal func hideHUD() {
         MBProgressHUD.hide(for: self.view, animated: false)
     }
+    
+    static func loadFromNib() -> Self {
+        func instantiateFromNib<T: UIViewController>() -> T {
+            return T.init(nibName: String(describing: T.self), bundle: nil)
+        }
+
+        return instantiateFromNib()
+    }
 }

@@ -21,7 +21,7 @@ class AppManager {
     var long: Double = 0.0
     var user:User!
     var category:Category!
-    
+    var subCategory: SubCategory!
     
     
 }
