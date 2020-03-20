@@ -62,7 +62,7 @@ class RoundCornerButton: UIButton {
         
         self.layer.cornerRadius = self.frame.height/2
         self.clipsToBounds = true
-        self.backgroundColor = appThemeColor
+       // self.backgroundColor = appThemeColor
 
     }
     
