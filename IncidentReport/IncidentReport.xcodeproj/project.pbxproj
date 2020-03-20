@@ -19,6 +19,8 @@
 		18D50F9E2424B349004F99A1 /* LoginViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F9D2424B349004F99A1 /* LoginViewModal.swift */; };
 		18D50FA02424C019004F99A1 /* CategoryViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F9F2424C019004F99A1 /* CategoryViewModal.swift */; };
 		18D50FA22424C125004F99A1 /* SubCategoryViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50FA12424C125004F99A1 /* SubCategoryViewModal.swift */; };
+		18D50FA42424C611004F99A1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50FA32424C611004F99A1 /* Category.swift */; };
+		18D50FA62424C73E004F99A1 /* SubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50FA52424C73D004F99A1 /* SubCategory.swift */; };
 		1FA6B30EAE5886951D28B0B5 /* Pods_IncidentReportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025DFE8EE26DC798DF6E3FC4 /* Pods_IncidentReportTests.framework */; };
 		653E0D89321244C6BF2BD3F3 /* Pods_IncidentReportUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6722AD4D1E3844B186A5317 /* Pods_IncidentReportUITests.framework */; };
 		BDA2B4C89A104AC43C59B377 /* Pods_IncidentReport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF00FF7D9A24A042BF89FDCC /* Pods_IncidentReport.framework */; };
@@ -79,6 +81,8 @@
 		18D50F9D2424B349004F99A1 /* LoginViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModal.swift; sourceTree = "<group>"; };
 		18D50F9F2424C019004F99A1 /* CategoryViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModal.swift; sourceTree = "<group>"; };
 		18D50FA12424C125004F99A1 /* SubCategoryViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewModal.swift; sourceTree = "<group>"; };
+		18D50FA32424C611004F99A1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		18D50FA52424C73D004F99A1 /* SubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategory.swift; sourceTree = "<group>"; };
 		4053FC6F2FDAB64919496728 /* Pods-IncidentReportUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IncidentReportUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IncidentReportUITests/Pods-IncidentReportUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5339CC79AFEAFCAFBD753654 /* Pods-IncidentReportUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IncidentReportUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IncidentReportUITests/Pods-IncidentReportUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A6722AD4D1E3844B186A5317 /* Pods_IncidentReportUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IncidentReportUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				18D50F9B2424ABA4004F99A1 /* JSONUtilities.swift */,
+				18D50FA52424C73D004F99A1 /* SubCategory.swift */,
+				18D50FA32424C611004F99A1 /* Category.swift */,
 				18D50F992424AB8B004F99A1 /* Address.swift */,
 			);
 			path = Modal;
@@ -566,6 +572,7 @@
 				18D50F90242499A7004F99A1 /* MapViewModal.swift in Sources */,
 				C071E9C42423493A00ADC871 /* LeftMenuVC.swift in Sources */,
 				18D50F9A2424AB8B004F99A1 /* Address.swift in Sources */,
+				18D50FA62424C73E004F99A1 /* SubCategory.swift in Sources */,
 				18D50F922424A014004F99A1 /* APIHelper.swift in Sources */,
 				C071E9D32423705F00ADC871 /* ConfigurationFile.swift in Sources */,
 				18D50F8C24249991004F99A1 /* AppManager.swift in Sources */,
@@ -582,6 +589,7 @@
 				C071E9DA2424886A00ADC871 /* SubcategoryCell.swift in Sources */,
 				C071E9DE242488DB00ADC871 /* SubcategoryVC.swift in Sources */,
 				C071E98F242332CE00ADC871 /* AppDelegate.swift in Sources */,
+				18D50FA42424C611004F99A1 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
