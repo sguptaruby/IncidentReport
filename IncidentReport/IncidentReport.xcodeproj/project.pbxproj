@@ -14,6 +14,11 @@
 		18D50F942424A01F004F99A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F932424A01F004F99A1 /* Constants.swift */; };
 		18D50F962424A09D004F99A1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F952424A09D004F99A1 /* Common.swift */; };
 		18D50F982424A172004F99A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F972424A172004F99A1 /* LoginViewController.swift */; };
+		18D50F9A2424AB8B004F99A1 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F992424AB8B004F99A1 /* Address.swift */; };
+		18D50F9C2424ABA4004F99A1 /* JSONUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F9B2424ABA4004F99A1 /* JSONUtilities.swift */; };
+		18D50F9E2424B349004F99A1 /* LoginViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F9D2424B349004F99A1 /* LoginViewModal.swift */; };
+		18D50FA02424C019004F99A1 /* CategoryViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F9F2424C019004F99A1 /* CategoryViewModal.swift */; };
+		18D50FA22424C125004F99A1 /* SubCategoryViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50FA12424C125004F99A1 /* SubCategoryViewModal.swift */; };
 		1FA6B30EAE5886951D28B0B5 /* Pods_IncidentReportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025DFE8EE26DC798DF6E3FC4 /* Pods_IncidentReportTests.framework */; };
 		653E0D89321244C6BF2BD3F3 /* Pods_IncidentReportUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6722AD4D1E3844B186A5317 /* Pods_IncidentReportUITests.framework */; };
 		BDA2B4C89A104AC43C59B377 /* Pods_IncidentReport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF00FF7D9A24A042BF89FDCC /* Pods_IncidentReport.framework */; };
@@ -69,6 +74,11 @@
 		18D50F932424A01F004F99A1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18D50F952424A09D004F99A1 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		18D50F972424A172004F99A1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		18D50F992424AB8B004F99A1 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		18D50F9B2424ABA4004F99A1 /* JSONUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtilities.swift; sourceTree = "<group>"; };
+		18D50F9D2424B349004F99A1 /* LoginViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModal.swift; sourceTree = "<group>"; };
+		18D50F9F2424C019004F99A1 /* CategoryViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModal.swift; sourceTree = "<group>"; };
+		18D50FA12424C125004F99A1 /* SubCategoryViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewModal.swift; sourceTree = "<group>"; };
 		4053FC6F2FDAB64919496728 /* Pods-IncidentReportUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IncidentReportUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IncidentReportUITests/Pods-IncidentReportUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5339CC79AFEAFCAFBD753654 /* Pods-IncidentReportUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IncidentReportUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IncidentReportUITests/Pods-IncidentReportUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A6722AD4D1E3844B186A5317 /* Pods_IncidentReportUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IncidentReportUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				18D50F8F242499A7004F99A1 /* MapViewModal.swift */,
+				18D50F9D2424B349004F99A1 /* LoginViewModal.swift */,
+				18D50F9F2424C019004F99A1 /* CategoryViewModal.swift */,
+				18D50FA12424C125004F99A1 /* SubCategoryViewModal.swift */,
 			);
 			path = ViewModal;
 			sourceTree = "<group>";
@@ -156,6 +169,8 @@
 		188DA6BE242496820003A1AC /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				18D50F9B2424ABA4004F99A1 /* JSONUtilities.swift */,
+				18D50F992424AB8B004F99A1 /* Address.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -544,17 +559,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D50FA02424C019004F99A1 /* CategoryViewModal.swift in Sources */,
 				18D50F982424A172004F99A1 /* LoginViewController.swift in Sources */,
 				18D50F962424A09D004F99A1 /* Common.swift in Sources */,
 				C071E9CA242355F000ADC871 /* CategoryVC.swift in Sources */,
 				18D50F90242499A7004F99A1 /* MapViewModal.swift in Sources */,
 				C071E9C42423493A00ADC871 /* LeftMenuVC.swift in Sources */,
+				18D50F9A2424AB8B004F99A1 /* Address.swift in Sources */,
 				18D50F922424A014004F99A1 /* APIHelper.swift in Sources */,
 				C071E9D32423705F00ADC871 /* ConfigurationFile.swift in Sources */,
 				18D50F8C24249991004F99A1 /* AppManager.swift in Sources */,
 				C071E9D124236C3600ADC871 /* CustomViews.swift in Sources */,
+				18D50F9E2424B349004F99A1 /* LoginViewModal.swift in Sources */,
 				18D50F942424A01F004F99A1 /* Constants.swift in Sources */,
 				C071E9C52423493A00ADC871 /* MenuCell.swift in Sources */,
+				18D50F9C2424ABA4004F99A1 /* JSONUtilities.swift in Sources */,
+				18D50FA22424C125004F99A1 /* SubCategoryViewModal.swift in Sources */,
 				18D50F8E2424999B004F99A1 /* MapViewController.swift in Sources */,
 				C071E9D624247D8100ADC871 /* CategoryCell.swift in Sources */,
 				C071E9CF24236A1400ADC871 /* DesignableUITextField.swift in Sources */,

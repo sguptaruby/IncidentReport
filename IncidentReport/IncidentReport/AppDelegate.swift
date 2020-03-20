@@ -111,12 +111,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
    
         if (locationFixAchieved == false) {
             locationFixAchieved = true
-            var locationArray = locations as NSArray
-            var locationObj = locationArray.lastObject as! CLLocation
-            var coord = locationObj.coordinate
-
-            print(coord.latitude)
-            print(coord.longitude)
+            let locationArray = locations as NSArray
+            let locationObj = locationArray.lastObject as! CLLocation
+            let coord = locationObj.coordinate
+            AppManager.share.lat = coord.latitude
+            AppManager.share.long = coord.longitude
         }
     }
     
