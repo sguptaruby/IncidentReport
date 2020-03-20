@@ -28,8 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let UserDefaultsVal = UserDefaults()
-        UserDefaultsVal.set("yes", forKey: "login")
         initLocationManager();
         GMSServices.provideAPIKey(googleApiKey)
         GMSPlacesClient.provideAPIKey(googleApiKey)
@@ -66,7 +64,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             let LoginVal = UserDefaultsVal.object(forKey: "login") as? String
             if LoginVal == "yes" {
                 
-                let mainViewController = CategoryVC(nibName: "CategoryVC", bundle:nil)
+                let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                let mainViewController = mainStoryBoard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+
                 let leftMenuVC = LeftMenuVC(nibName: "LeftMenuVC", bundle:nil)
                 
                 navController = UINavigationController(rootViewController: mainViewController);
@@ -77,13 +77,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 self.window?.rootViewController = self.revealVC;
                 
             } else {
-                let navController = UINavigationController(rootViewController: ViewController(nibName: "ViewController", bundle: nil));
+                
+                let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = mainStoryBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                let navController = UINavigationController(rootViewController: vc);
                 navController.setNavigationBarHidden(true, animated: false)
                 self.window?.rootViewController =  navController;
             }
         
     }
-    // Location Manager helper stuff
+    
+}
+
+
+// Location Manager helper stuff
+extension AppDelegate {
     func initLocationManager() {
         seenError = false
         locationFixAchieved = false
@@ -97,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     // Location Manager Delegate stuff
     // If failed
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-   
+        
         locationManager.stopUpdatingLocation()
         if ((error) != nil) {
             if (seenError == false) {
@@ -108,20 +116,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-   
+        
         if (locationFixAchieved == false) {
             locationFixAchieved = true
-            var locationArray = locations as NSArray
-            var locationObj = locationArray.lastObject as! CLLocation
-            var coord = locationObj.coordinate
-
+            let locationArray = locations as NSArray
+            let locationObj = locationArray.lastObject as! CLLocation
+            let coord = locationObj.coordinate
+            
             print(coord.latitude)
             print(coord.longitude)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-   
+        
         var shouldIAllow = false
         
         switch status {
@@ -145,4 +153,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
     }
 }
-

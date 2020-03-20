@@ -36,48 +36,7 @@ class LeftMenuVC: UIViewController {
 
 }
 
-extension LeftMenuVC : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
-    }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if indexPath.row == 0 {
-//            let surveyListViewController = self.storyboard?.instantiateViewController(withIdentifier: "SurveyListViewController") as! SurveyListViewController
-//            appDelegate.slideMenuController.changeMainViewController(surveyListViewController, close: true)
-//
-////            self.navigationController?.pushViewController(surveyListViewController, animated: true)
-//        }
-//        else if indexPath.row == 1 {
-//            let sosViewController = self.storyboard?.instantiateViewController(withIdentifier: "SOSViewController") as! SOSViewController
-//            self.navigationController?.pushViewController(sosViewController, animated: true)
-//        }
-//        else if indexPath.row == 2 {
-//            let userProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
-//            self.navigationController?.pushViewController(userProfileViewController, animated: true)
-//        } else {
-//            let alert = UIAlertController(title: "Alert", message: kLogout, preferredStyle: .alert
-//            )
-//            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
-//            {
-//                UIAlertAction in
-//
-//                for controller in self.navigationController!.viewControllers as Array {
-//                    if controller.isKind(of: LoginViewController.self) {
-//                        self.navigationController!.popToViewController(controller, animated: true)
-//                        break
-//                    }
-//                }
-//            }
-//            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {
-//                UIAlertAction in
-//            }
-//            alert.addAction(okAction)
-//            alert.addAction(cancelAction)
-//            self.present(alert, animated: true, completion: nil)
-//        }
-//    }
-}
+
 
 extension LeftMenuVC : UITableViewDataSource {
 
@@ -92,4 +51,27 @@ extension LeftMenuVC : UITableViewDataSource {
     }
 }
 
-
+extension LeftMenuVC : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var controller: UIViewController!
+        
+        if indexPath.row == 0 {
+            controller = CategoryVC(nibName: "CategoryVC", bundle: nil)
+            
+        } else if indexPath.row == 1 {
+            controller = IssueListVC(nibName: "IssueListVC", bundle: nil)
+        } else {
+            //            Common.setUserDefault(obj: "no" as AnyObject, forKey: "login")
+            APPDELEGATE.showLoginView()
+        }
+        
+        APPDELEGATE.navController.viewControllers = [controller]
+        Common.addMenuNavigationLeftButtonOn(controller: controller);
+        APPDELEGATE.revealVC.rightRevealToggle(animated: true)
+        
+    }
+}
