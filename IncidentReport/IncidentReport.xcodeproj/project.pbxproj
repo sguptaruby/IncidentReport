@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1844A1D32424EEA600BFE2EC /* ConfigurationFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844A1D22424EEA600BFE2EC /* ConfigurationFile.swift */; };
+		1844A1D52424F32500BFE2EC /* ControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844A1D42424F32400BFE2EC /* ControllerExtension.swift */; };
+		1844A1D72424F7A700BFE2EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844A1D62424F7A600BFE2EC /* User.swift */; };
+		1863F2022428A1DF0017CD6F /* SubmitIssueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863F2002428A1DF0017CD6F /* SubmitIssueCollectionViewCell.swift */; };
+		1863F2032428A1DF0017CD6F /* SubmitIssueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1863F2012428A1DF0017CD6F /* SubmitIssueCollectionViewCell.xib */; };
 		18D50F8C24249991004F99A1 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F8B24249991004F99A1 /* AppManager.swift */; };
 		18D50F8E2424999B004F99A1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F8D2424999B004F99A1 /* MapViewController.swift */; };
 		18D50F90242499A7004F99A1 /* MapViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D50F8F242499A7004F99A1 /* MapViewModal.swift */; };
@@ -75,6 +80,11 @@
 
 /* Begin PBXFileReference section */
 		1782AC5CBFF32126E889DBDA /* Pods_IncidentReportUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IncidentReportUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1844A1D22424EEA600BFE2EC /* ConfigurationFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationFile.swift; sourceTree = "<group>"; };
+		1844A1D42424F32400BFE2EC /* ControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExtension.swift; sourceTree = "<group>"; };
+		1844A1D62424F7A600BFE2EC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1863F2002428A1DF0017CD6F /* SubmitIssueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitIssueCollectionViewCell.swift; sourceTree = "<group>"; };
+		1863F2012428A1DF0017CD6F /* SubmitIssueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitIssueCollectionViewCell.xib; sourceTree = "<group>"; };
 		18D50F8B24249991004F99A1 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		18D50F8D2424999B004F99A1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		18D50F8F242499A7004F99A1 /* MapViewModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModal.swift; sourceTree = "<group>"; };
@@ -201,6 +211,7 @@
 		188DA6BE242496820003A1AC /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				1844A1D62424F7A600BFE2EC /* User.swift */,
 				18D50F9B2424ABA4004F99A1 /* JSONUtilities.swift */,
 				18D50FA52424C73D004F99A1 /* SubCategory.swift */,
 				18D50FA32424C611004F99A1 /* Category.swift */,
@@ -212,9 +223,11 @@
 		188DA6BF242496930003A1AC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				1844A1D22424EEA600BFE2EC /* ConfigurationFile.swift */,
 				18D50F8B24249991004F99A1 /* AppManager.swift */,
 				C0B970802424D2E200F6AA7A /* CustomViews.swift */,
 				C0B9707F2424D2E200F6AA7A /* DesignableUITextField.swift */,
+				1844A1D42424F32400BFE2EC /* ControllerExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -258,6 +271,8 @@
 			children = (
 				18D50FA82424D424004F99A1 /* SubmitIssueViewController.swift */,
 				18D50FA92424D424004F99A1 /* SubmitIssueViewController.xib */,
+				1863F2002428A1DF0017CD6F /* SubmitIssueCollectionViewCell.swift */,
+				1863F2012428A1DF0017CD6F /* SubmitIssueCollectionViewCell.xib */,
 			);
 			path = SubmitIssueViewController;
 			sourceTree = "<group>";
@@ -503,6 +518,7 @@
 				C0B9706B2424D1EF00F6AA7A /* IssueListCell.xib in Resources */,
 				C0B970642424D1CE00F6AA7A /* SubcategoryVC.xib in Resources */,
 				C0B970702424D1EF00F6AA7A /* IssueListVC.xib in Resources */,
+				1863F2032428A1DF0017CD6F /* SubmitIssueCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +650,7 @@
 				C0B9706C2424D1EF00F6AA7A /* IssueListHeaderCell.swift in Sources */,
 				18D50F982424A172004F99A1 /* LoginViewController.swift in Sources */,
 				18D50F962424A09D004F99A1 /* Common.swift in Sources */,
+				1844A1D72424F7A700BFE2EC /* User.swift in Sources */,
 				C0B9705C2424D1B200F6AA7A /* AppDelegate.swift in Sources */,
 				18D50F90242499A7004F99A1 /* MapViewModal.swift in Sources */,
 				18D50F9A2424AB8B004F99A1 /* Address.swift in Sources */,
@@ -647,13 +664,16 @@
 				18D50F9E2424B349004F99A1 /* LoginViewModal.swift in Sources */,
 				C0B970582424D19700F6AA7A /* CategoryCell.swift in Sources */,
 				18D50F942424A01F004F99A1 /* Constants.swift in Sources */,
+				1863F2022428A1DF0017CD6F /* SubmitIssueCollectionViewCell.swift in Sources */,
 				18D50FAA2424D424004F99A1 /* SubmitIssueViewController.swift in Sources */,
 				C0B970772424D20700F6AA7A /* MenuCell.swift in Sources */,
+				1844A1D52424F32500BFE2EC /* ControllerExtension.swift in Sources */,
 				C0B970812424D2E300F6AA7A /* DesignableUITextField.swift in Sources */,
 				18D50F9C2424ABA4004F99A1 /* JSONUtilities.swift in Sources */,
 				18D50FA22424C125004F99A1 /* SubCategoryViewModal.swift in Sources */,
 				18D50F8E2424999B004F99A1 /* MapViewController.swift in Sources */,
 				C0B970592424D19700F6AA7A /* CategoryVC.swift in Sources */,
+				1844A1D32424EEA600BFE2EC /* ConfigurationFile.swift in Sources */,
 				C071E991242332CE00ADC871 /* ViewController.swift in Sources */,
 				C0B970622424D1CE00F6AA7A /* SubcategoryCell.swift in Sources */,
 				C0B970762424D20700F6AA7A /* LeftMenuVC.swift in Sources */,
@@ -834,7 +854,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZZGM2249AB;
+				DEVELOPMENT_TEAM = DMUME3PD8U;
 				INFOPLIST_FILE = IncidentReport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -853,7 +873,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZZGM2249AB;
+				DEVELOPMENT_TEAM = DMUME3PD8U;
 				INFOPLIST_FILE = IncidentReport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

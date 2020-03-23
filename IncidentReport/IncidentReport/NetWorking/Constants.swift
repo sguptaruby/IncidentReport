@@ -22,7 +22,7 @@ let Production = "http://del.kmgin.com:9020/IncidentReporting/api/"
 let AuthenticateUser = Production+"Users/AuthenticateUser"
 let Getcategories = Production+"categories/Getcategories"
 let SubGetcategories = Production+"Categories/GetSubCategories"
-
+let GetParameterData = Production+"Parameters/GetParameterData"
 
 
 

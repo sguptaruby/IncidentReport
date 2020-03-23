@@ -24,6 +24,7 @@ class MapViewController: UIViewController {
         // Do any additional setup after loading the view.
         loadMapView()
         categoryApiCall()
+        getParameterDataApiCall()
     }
     
     func loadMapView() {
@@ -70,6 +71,22 @@ class MapViewController: UIViewController {
         CategoryViewModal.share.getCategory(param: dict, vc: self, successClosure: { (data) in
             if let dict = data as? [String:Any] {
                 AppManager.share.category = Category(json: dict)
+            }
+        }) { (error) in
+            SwAlert.showAlert("Incident Report", message: error, buttonTitle: "OK")
+        }
+    }
+    
+    func getParameterDataApiCall() {
+        let dict = ["Userid":AppManager.share.user.data.userID,"ParameterKey":"IncidentImageCount"] as [String : Any]
+        MapViewModal.share.getParameterData(param: dict, vc: self, successClosure: { (data) in
+            if let dict = data as? [String:Any] {
+                print(dict)
+                if let data = dict["Data"] as? [[String:Any]] {
+                    if let dict1 = data.first {
+                        AppManager.share.IncidentImageCount = dict1["ParameterValue"] as? String ?? ""
+                    }
+                }
             }
         }) { (error) in
             SwAlert.showAlert("Incident Report", message: error, buttonTitle: "OK")

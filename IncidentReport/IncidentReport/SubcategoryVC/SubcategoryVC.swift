@@ -11,11 +11,17 @@ import SwAlert
 
 class SubcategoryVC: UIViewController {
     
+    @IBOutlet weak var tableViewSubCategory: UITableView!
     var categoryItem: Category.Data!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableViewSubCategory.register(UINib(nibName: "SubcategoryCell", bundle: nil), forCellReuseIdentifier: "SubcategoryCell")
+        tableViewSubCategory.tableFooterView = UIView()
+        tableViewSubCategory.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor.white
 
         // Do any additional setup after loading the view.
         subCategoryApiCall()
@@ -26,7 +32,9 @@ class SubcategoryVC: UIViewController {
         SubCategoryViewModal.share.getSubCategory(param: dict, vc: self, successClosure: { (data) in
             if let dict = data as? [String:Any] {
                 AppManager.share.subCategory = SubCategory(json: dict)
+                print(AppManager.share.subCategory.data.count)
             }
+            self.tableViewSubCategory.reloadData()
         }) { (error) in
             
         }
@@ -34,4 +42,39 @@ class SubcategoryVC: UIViewController {
 
 
 
+}
+
+extension SubcategoryVC : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let subcategory = AppManager.share.subCategory {
+            print(subcategory.data.count)
+            return subcategory.data.count
+        }
+        return 0
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SubcategoryCell") as! SubcategoryCell
+        cell.selectionStyle = .none
+        cell.labelSubCategory.text = AppManager.share.subCategory.data[indexPath.row].subCategoryName
+        cell.imageSubCategory.setImageWith(AppManager.share.subCategory.data[indexPath.row].icon)
+        return cell
+    }
+    
+    
+}
+
+extension SubcategoryVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = SubmitIssueViewController.loadFromNib()
+        vc.subcategory = AppManager.share.subCategory.data[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

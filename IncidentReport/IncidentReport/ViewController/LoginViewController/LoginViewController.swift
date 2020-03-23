@@ -17,9 +17,18 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        getAddressApiCall()
+        
         emailTextField.text = "sumit.thalwal@kmgin.com"
         passwordTextField.text = "kmg125"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let seconds = 4.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.getAddressApiCall()
+        }
+       
     }
     
     

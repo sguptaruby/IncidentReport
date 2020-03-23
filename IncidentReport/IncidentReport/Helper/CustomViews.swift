@@ -81,3 +81,17 @@ class RoundImageView: UIImageView {
     }
     
 }
+
+class BorderImageView: UIImageView {
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        super.init(coder: aDecoder)
+        
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 3.0
+        self.layer.borderColor = appThemeColor.cgColor
+        self.layer.borderWidth = 0.3
+    }
+    
+}

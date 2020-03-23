@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AppManager {
     
@@ -17,11 +18,12 @@ class AppManager {
     }
     
     lazy var strAddress = ""
-    var lat: Double = 0.0
-    var long: Double = 0.0
+    var lat: Double! 
+    var long: Double!
     var user:User!
     var category:Category!
     var subCategory: SubCategory!
-    
+    var arrImages = [UIImage]()
+    var IncidentImageCount:String!
     
 }

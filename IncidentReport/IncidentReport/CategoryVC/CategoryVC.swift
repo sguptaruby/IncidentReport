@@ -33,15 +33,19 @@ extension CategoryVC : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as! CategoryCell
-        cell.textLabel?.text = AppManager.share.category.data[indexPath.row].categoryName
+        cell.selectionStyle = .none
+        cell.categoryLabel.text = AppManager.share.category.data[indexPath.row].categoryName        
+        cell.categoryImage.setImageWith(AppManager.share.category.data[indexPath.row].icon)
+        
         return cell
+        
     }
 }
 
 extension CategoryVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0
+        return 60
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
