@@ -39,15 +39,15 @@ class APIHelper: NSObject {
                 print("token:    \(authToken )")
             }
             let manager = AFHTTPSessionManager()
-            
             manager.requestSerializer = request
+            manager.requestSerializer.timeoutInterval = 25
             let parameterDict = parameters.mutableCopy() as! NSMutableDictionary
             
             print("URL String: ", onUrl);
 //            parameterDict.setValue("iPhone", forKey: "deviceType")
             
             
-            print("Parameters Sent: ", parameterDict)
+            //print("Parameters Sent: ", parameterDict)
             manager.post(onUrl, parameters: parameterDict, progress: nil, success: {
                 (operation, responseObject) in
             

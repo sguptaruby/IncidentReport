@@ -22,22 +22,22 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iY-d0-OWD">
                         <rect key="frame" x="2.5" y="2.5" width="315" height="60.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tow-H2-rl7">
-                                <rect key="frame" x="16" y="5.5" width="50" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tow-H2-rl7" customClass="BorderImageView" customModule="IncidentReport" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="45" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="V5h-9Y-yLJ"/>
+                                    <constraint firstAttribute="width" constant="45" id="V5h-9Y-yLJ"/>
                                     <constraint firstAttribute="width" secondItem="tow-H2-rl7" secondAttribute="height" multiplier="1:1" id="gvP-xd-NCt"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h80-9E-LjS">
-                                <rect key="frame" x="28.5" y="18" width="25" height="25"/>
+                                <rect key="frame" x="18" y="18" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="7dd-gm-qEn"/>
                                     <constraint firstAttribute="width" secondItem="h80-9E-LjS" secondAttribute="height" multiplier="1:1" id="fpd-ey-Uwa"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHE-h5-5mt">
-                                <rect key="frame" x="82" y="20" width="217" height="21"/>
+                                <rect key="frame" x="69" y="20" width="230" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="h80-9E-LjS" firstAttribute="centerY" secondItem="tow-H2-rl7" secondAttribute="centerY" id="2g6-b9-mm4"/>
-                            <constraint firstItem="tow-H2-rl7" firstAttribute="leading" secondItem="9iY-d0-OWD" secondAttribute="leading" constant="16" id="CKu-iD-onZ"/>
+                            <constraint firstItem="tow-H2-rl7" firstAttribute="leading" secondItem="9iY-d0-OWD" secondAttribute="leading" constant="8" id="CKu-iD-onZ"/>
                             <constraint firstItem="h80-9E-LjS" firstAttribute="centerX" secondItem="tow-H2-rl7" secondAttribute="centerX" id="Dst-zJ-BDe"/>
                             <constraint firstItem="tow-H2-rl7" firstAttribute="centerY" secondItem="9iY-d0-OWD" secondAttribute="centerY" id="Lb0-Bx-5GE"/>
                             <constraint firstAttribute="trailing" secondItem="bHE-h5-5mt" secondAttribute="trailing" constant="16" id="aiD-gh-Lo6"/>
@@ -63,6 +63,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imageViewHeader" destination="h80-9E-LjS" id="YhZ-EE-fTH"/>
+                <outlet property="labelHeader" destination="bHE-h5-5mt" id="NQe-ku-gle"/>
+            </connections>
             <point key="canvasLocation" x="137.59999999999999" y="126.83658170914543"/>
         </tableViewCell>
     </objects>

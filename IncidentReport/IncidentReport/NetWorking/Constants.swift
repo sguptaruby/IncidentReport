@@ -23,8 +23,9 @@ let AuthenticateUser = Production+"Users/AuthenticateUser"
 let Getcategories = Production+"categories/Getcategories"
 let SubGetcategories = Production+"Categories/GetSubCategories"
 let GetParameterData = Production+"Parameters/GetParameterData"
-
-
+let GetIssueList = Production+"Incident/GetPendingIssues"
+let AddIncidentRequest = Production+"Incident/AddIncidentRequest"
+let AddImage = Production+"Incident/AddImage"
 
 
 

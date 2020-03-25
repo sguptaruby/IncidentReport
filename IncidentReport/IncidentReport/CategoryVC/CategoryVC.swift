@@ -21,6 +21,12 @@ class CategoryVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavigationBar()
+        self.addNavigationView(title: "Category", subtitle: "Please select category", image: "back", isMenu: false, isIssueForm: false)
+    }
 
 }
 

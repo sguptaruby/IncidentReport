@@ -27,6 +27,12 @@ class SubcategoryVC: UIViewController {
         subCategoryApiCall()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavigationBar()
+        self.addNavigationView(title: "Subcategory", subtitle: "Please select subcategory", image: "back", isMenu: false, isIssueForm: false)
+    }
+    
     func subCategoryApiCall() {
         let dict = ["Userid":AppManager.share.user.data.userID,"CategoryId":categoryItem.categoryID]
         SubCategoryViewModal.share.getSubCategory(param: dict, vc: self, successClosure: { (data) in
@@ -75,6 +81,7 @@ extension SubcategoryVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = SubmitIssueViewController.loadFromNib()
         vc.subcategory = AppManager.share.subCategory.data[indexPath.row]
+        vc.category = categoryItem
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

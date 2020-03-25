@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ekb-e1-vxI">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="390.5"/>
+                    <rect key="frame" x="0.0" y="100" width="414" height="420.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="7bO-Lb-BJX"/>
@@ -36,10 +36,10 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SrP-Rj-8eE">
-                    <rect key="frame" x="20" y="420.5" width="374" height="50"/>
+                    <rect key="frame" x="20" y="520.5" width="374" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GY-wN-55Q" customClass="RoundCornerButton" customModule="IncidentReport" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="182" height="40"/>
                             <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Take Picture" image="camera">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,7 +49,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDI-yg-Jih" customClass="RoundCornerButton" customModule="IncidentReport" customModuleProvider="target">
-                            <rect key="frame" x="192" y="0.0" width="182" height="50"/>
+                            <rect key="frame" x="192" y="0.0" width="182" height="40"/>
                             <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Make a Call" image="phone">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,18 +60,18 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="uB8-Q2-dVG"/>
+                        <constraint firstAttribute="height" constant="40" id="uB8-Q2-dVG"/>
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTn-8H-qoS">
-                    <rect key="frame" x="20" y="500.5" width="374" height="1"/>
+                    <rect key="frame" x="20" y="580.5" width="374" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="1Bq-Gj-PVz"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exh-5u-v6S">
-                    <rect key="frame" x="20" y="521.5" width="123" height="20.5"/>
+                    <rect key="frame" x="20" y="601.5" width="123" height="20.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20.5" id="hjQ-88-aQ6"/>
                     </constraints>
@@ -80,10 +80,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hb0-ox-9LD">
-                    <rect key="frame" x="20" y="552" width="374" height="200"/>
+                    <rect key="frame" x="20" y="632" width="374" height="150"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="hqY-kB-YEH"/>
+                        <constraint firstAttribute="height" constant="150" id="hqY-kB-YEH"/>
                     </constraints>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -91,9 +91,9 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-54-QpN" customClass="RoundCornerButton" customModule="IncidentReport" customModuleProvider="target">
-                    <rect key="frame" x="20" y="792" width="374" height="50"/>
+                    <rect key="frame" x="20" y="802" width="374" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="yPX-CF-Rsj"/>
+                        <constraint firstAttribute="height" constant="40" id="yPX-CF-Rsj"/>
                     </constraints>
                     <state key="normal" title="Submit">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -105,11 +105,11 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="SrP-Rj-8eE" firstAttribute="top" secondItem="Ekb-e1-vxI" secondAttribute="bottom" constant="30" id="AUv-nG-K2l"/>
+                <constraint firstItem="SrP-Rj-8eE" firstAttribute="top" secondItem="Ekb-e1-vxI" secondAttribute="bottom" id="AUv-nG-K2l"/>
                 <constraint firstItem="hb0-ox-9LD" firstAttribute="top" secondItem="exh-5u-v6S" secondAttribute="bottom" constant="10" id="AmW-w0-8AJ"/>
                 <constraint firstItem="exh-5u-v6S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Ihh-fn-uAc"/>
                 <constraint firstItem="hb0-ox-9LD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="K9Y-yx-jqO"/>
-                <constraint firstItem="3IE-54-QpN" firstAttribute="top" secondItem="hb0-ox-9LD" secondAttribute="bottom" constant="40" id="RE0-zA-Du8"/>
+                <constraint firstItem="3IE-54-QpN" firstAttribute="top" secondItem="hb0-ox-9LD" secondAttribute="bottom" constant="20" id="RE0-zA-Du8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OTn-8H-qoS" secondAttribute="trailing" constant="20" id="Xf5-7x-dVd"/>
                 <constraint firstItem="SrP-Rj-8eE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Z2h-ED-pK2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3IE-54-QpN" secondAttribute="bottom" constant="20" id="ZyS-uE-Arh"/>
@@ -119,8 +119,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ekb-e1-vxI" secondAttribute="trailing" id="fEq-9k-GyC"/>
                 <constraint firstItem="exh-5u-v6S" firstAttribute="top" secondItem="OTn-8H-qoS" secondAttribute="bottom" constant="20" id="ixx-Bq-Lmd"/>
                 <constraint firstItem="OTn-8H-qoS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="j9C-Dx-ho2"/>
-                <constraint firstItem="OTn-8H-qoS" firstAttribute="top" secondItem="SrP-Rj-8eE" secondAttribute="bottom" constant="30" id="jeJ-29-VbL"/>
-                <constraint firstItem="Ekb-e1-vxI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sRa-U1-h6x"/>
+                <constraint firstItem="OTn-8H-qoS" firstAttribute="top" secondItem="SrP-Rj-8eE" secondAttribute="bottom" constant="20" id="jeJ-29-VbL"/>
+                <constraint firstItem="Ekb-e1-vxI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="sRa-U1-h6x"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SrP-Rj-8eE" secondAttribute="trailing" constant="20" id="swN-iK-fif"/>
                 <constraint firstItem="Ekb-e1-vxI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tj3-V5-I61"/>
             </constraints>

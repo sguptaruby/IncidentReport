@@ -25,5 +25,5 @@ class AppManager {
     var subCategory: SubCategory!
     var arrImages = [UIImage]()
     var IncidentImageCount:String!
-    
+    var naviView: NavigationView!
 }

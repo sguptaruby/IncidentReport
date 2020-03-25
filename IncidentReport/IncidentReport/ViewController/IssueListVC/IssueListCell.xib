@@ -20,18 +20,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLK-Pp-SMT">
-                        <rect key="frame" x="2.5" y="2.5" width="315" height="66.5"/>
+                        <rect key="frame" x="8" y="2.5" width="309.5" height="66.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnW-vn-WP1">
-                                <rect key="frame" x="16" y="8" width="283" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="8" width="277.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzk-bh-obT">
-                                <rect key="frame" x="16" y="37" width="283" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="16" y="34" width="277.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -50,7 +50,7 @@
                     <constraint firstAttribute="bottom" secondItem="TLK-Pp-SMT" secondAttribute="bottom" constant="2.5" id="MYI-gN-4hp"/>
                     <constraint firstAttribute="trailing" secondItem="TLK-Pp-SMT" secondAttribute="trailing" constant="2.5" id="m2W-WP-zqF"/>
                     <constraint firstItem="TLK-Pp-SMT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2.5" id="u9X-6i-oZF"/>
-                    <constraint firstItem="TLK-Pp-SMT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2.5" id="vf6-gt-ocj"/>
+                    <constraint firstItem="TLK-Pp-SMT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="vf6-gt-ocj"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -16,8 +16,9 @@ class SubmitIssueViewController: UIViewController {
     @IBOutlet weak var txtViewDescription: UITextView!
     @IBOutlet weak var collectionVW: UICollectionView!
     var subcategory:SubCategory.Data!
-    
-    
+    var IncidentRequestId: Int?
+    var imagecount = 1
+    var category: Category.Data!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +29,11 @@ class SubmitIssueViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil);
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavigationBar()
+        self.addNavigationView(title: "\(category.categoryName) / \(subcategory.subCategoryName)", subtitle: AppManager.share.strAddress, image: "back", isMenu: false, isIssueForm: true)
     }
     
     func defaultInitialization()  {
@@ -84,12 +90,12 @@ class SubmitIssueViewController: UIViewController {
     }
     
     @IBAction func btnMakeCall(sender:UIButton) {
-        dialNumber(number: "1110101001")
+        dialNumber(number: subcategory.phoneNumber)
     }
     
     @IBAction func btnSubmitAction(sender:UIButton) {
         if vailidation() {
-            
+            self.addIncidentRequestApiCall()
         }
     }
     
@@ -153,12 +159,64 @@ class SubmitIssueViewController: UIViewController {
         }
     }
     
+    func addIncidentRequestApiCall() {
+        let dict = ["Userid":AppManager.share.user.data.userID,"SubCategoryID":subcategory.subCategoryID,"Location":AppManager.share.user.data.address,"JibeStreamID":0,"StatusID":2,"Latitude":AppManager.share.user.data.latitude,"Longitute":AppManager.share.user.data.longitude,"Description":txtViewDescription.text] as [String : Any]
+        SubmitIssueViewModal.share.addIncidentRequest(param: dict, vc: self, successClosure: { (data) in
+            if let dict = data as? [String:Any] {
+                if let IncidentRequestdict = dict["Data"] as? [String:Any] {
+                    if let id = IncidentRequestdict["IncidentRequestId"] as? Int {
+                        self.IncidentRequestId = id
+                        if AppManager.share.arrImages.count != 0 {
+                            self.addImageapiCall()
+                        }else{
+                            SwAlert.showAlert("Incident Report", message: "Issue report submited.", buttonTitle: "OK") { (result) in
+                                for vc in self.navigationController!.viewControllers {
+                                    if vc.isKind(of: MapViewController.self) {
+                                        self.navigationController?.popToViewController(vc, animated: true)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }) { (error) in
+            SwAlert.showAlert("Incident Report", message: error, buttonTitle: "OK")
+        }
+    }
+    
+    func addImageapiCall() {
+        let image = AppManager.share.arrImages[0]
+        let strImage = image.toBase64()
+        print(self.imagecount)
+        let dict = ["FileName":imagecount,"IncidentRequestID":IncidentRequestId!,"Image":strImage as Any] as [String : Any]
+        SubmitIssueViewModal.share.addImage(param: dict, vc: self, successClosure: { (data) in
+            if (data as? [String:Any]) != nil {
+                AppManager.share.arrImages.remove(at: 0)
+                if AppManager.share.arrImages.count != 0 {
+                    self.imagecount = self.imagecount + 1
+                    self.addImageapiCall()
+                }else{
+                    SwAlert.showAlert("Incident Report", message: "Issue report submited.", buttonTitle: "OK") { (result) in
+                        for vc in self.navigationController!.viewControllers {
+                            if vc.isKind(of: MapViewController.self) {
+                                self.navigationController?.popToViewController(vc, animated: true)
+                            }
+                        }
+                    }
+                }
+            }
+        }) { (error) in
+            
+        }
+    }
+    
 }
 
 extension SubmitIssueViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
-            if let imageData = pickedImage.jpeg(.medium) {
+            if let imageData = pickedImage.jpeg(.low) {
                 print(imageData.count)
                 let image = UIImage(data: imageData)
                 if AppManager.share.arrImages.count < Int(AppManager.share.IncidentImageCount) ?? 0 {

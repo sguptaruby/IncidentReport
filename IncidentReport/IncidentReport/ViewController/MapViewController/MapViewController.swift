@@ -27,6 +27,12 @@ class MapViewController: UIViewController {
         getParameterDataApiCall()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavigationBar()
+        self.addNavigationView(title: "Location Map", subtitle: AppManager.share.strAddress, image: "menu", isMenu: true, isIssueForm: false)
+    }
+    
     func loadMapView() {
         
         mapView.isMyLocationEnabled = true
@@ -60,6 +66,9 @@ class MapViewController: UIViewController {
             if let dict = data {
                 let address = Address(json: dict as! [String : Any])
                 AppManager.share.strAddress = address?.results.first?.formattedAddress ?? ""
+                DispatchQueue.main.async {
+                     AppManager.share.naviView.lblAddress.text = AppManager.share.strAddress
+                }
             }
         }) { (error) in
             print(error)
@@ -93,8 +102,10 @@ class MapViewController: UIViewController {
         }
     }
     
+    
     @IBAction func btnIssuesListAction(sender:UIButton) {
-        
+        let vc = IssueListVC.loadFromNib()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func btnAddIssueAction(sender:UIButton) {

@@ -9,7 +9,9 @@
 import UIKit
 
 class IssueListHeaderCell: UITableViewHeaderFooterView {
-
+    @IBOutlet weak var imageViewHeader: UIImageView!
+    @IBOutlet weak var labelHeader: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

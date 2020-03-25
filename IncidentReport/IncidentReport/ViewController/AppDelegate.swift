@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         GMSServices.provideAPIKey(googleApiKey)
         GMSPlacesClient.provideAPIKey(googleApiKey)
 
-//        showLoginView()
+        showLoginView()
         return true
     }
 
@@ -63,7 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let UserDefaultsVal = UserDefaults()
             let LoginVal = UserDefaultsVal.object(forKey: "login") as? String
             if LoginVal == "yes" {
-                
+                let data = Common.getDict(key: "user")
+                AppManager.share.user = User(json: data as! [String : Any])
                 let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
                 let mainViewController = mainStoryBoard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
 

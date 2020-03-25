@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         emailTextField.text = "sumit.thalwal@kmgin.com"
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             self.getAddressApiCall()
         }
-       
+        
     }
     
     
@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
             return true
         }
     }
-
+    
     @IBAction func btnLoginAction(sender:UIButton) {
         if validationForLogin(){
             loginApiCall(email: emailTextField.text!, password: passwordTextField.text!)
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
             "Location":AppManager.share.strAddress,
             "Latitude":AppManager.share.lat,
             "Longitude":AppManager.share.long,
-            "Address":"",
+            "Address":AppManager.share.strAddress,
             "DeviceType":"Ios",
             "DeviceToken":"spectral"
             ] as [String : Any]
@@ -78,14 +78,16 @@ class LoginViewController: UIViewController {
     }
     
     func getAddressApiCall() {
-        MapViewModal.share.getFullAddress(lat: AppManager.share.lat, long: AppManager.share.long, vc: self, successClosure: { (data) in
-            if let dict = data {
-                let address = Address(json: dict as! [String : Any])
-                AppManager.share.strAddress = address?.results.first?.formattedAddress ?? ""
+        if AppManager.share.lat != nil {
+            MapViewModal.share.getFullAddress(lat: AppManager.share.lat, long: AppManager.share.long, vc: self, successClosure: { (data) in
+                if let dict = data {
+                    let address = Address(json: dict as! [String : Any])
+                    AppManager.share.strAddress = address?.results.first?.formattedAddress ?? ""
+                }
+            }) { (error) in
+                print(error)
             }
-        }) { (error) in
-            print(error)
         }
     }
-
+    
 }
