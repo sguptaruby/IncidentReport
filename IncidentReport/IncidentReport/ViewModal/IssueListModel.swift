@@ -6,11 +6,12 @@
 //  Copyright © 2020 Arpita Jain. All rights reserved.
 //
 
+
 import Foundation
 import UIKit
 
 class IssueListModel {
-
+    
     static let share = IssueListModel()
     
     private init() {

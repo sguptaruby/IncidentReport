@@ -27,7 +27,7 @@ class RoundCornerView: UIView {
         
         super.init(coder: aDecoder)
         
-        self.layer.cornerRadius = 5.0
+        self.layer.cornerRadius = 12
         self.clipsToBounds = true
         
     }
@@ -63,7 +63,7 @@ class RoundCornerButton: UIButton {
         self.layer.cornerRadius = self.frame.height/2
         self.clipsToBounds = true
         self.backgroundColor = appThemeColor
-
+        
     }
     
 }
@@ -82,6 +82,7 @@ class RoundImageView: UIImageView {
     
 }
 
+//MARK: UIImageView
 class BorderImageView: UIImageView {
     
     required init?(coder aDecoder: NSCoder) {

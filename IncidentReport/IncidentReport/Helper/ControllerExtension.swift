@@ -49,7 +49,8 @@ extension UIViewController {
     }
     
     @objc func openMenu(sender:UIButton) {
-        
+        APPDELEGATE.revealVC.revealToggle(animated: true)
+
     }
     
     @objc func navigationBack(sender:UIButton) {
@@ -65,6 +66,54 @@ extension UIViewController {
     func showNavigationBar() {
         // Show the navigation bar on other view controllers
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func checkDayType(dateStr: String)->(String){
+        
+        let dateString = dateStr
+        
+        if dateString != "" {
+            let isoDate = dateString
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"//"MM-dd-yyyy HH:mm:ss"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set
+            //        locale to reliable US_POSIX
+            let date = dateFormatter.date(from:isoDate)
+            
+            dateFormatter.dateFormat = "MM-dd-yyyy h:mm a"
+            
+            let timeFormatter = DateFormatter()
+            timeFormatter.dateFormat = "h:mm a"
+            timeFormatter.locale = Locale(identifier: "en_US_POSIX")
+            
+            let dateFormatterNew = DateFormatter()
+            dateFormatterNew.dateFormat = "dd-MMM-yyyy"
+            dateFormatterNew.locale = Locale(identifier: "en_US_POSIX")
+            
+            
+            let goodDate = dateFormatterNew.string(from: date!)
+            let goodTime = timeFormatter.string(from: date!)
+            
+            if date != nil {
+                let time = timeFormatter.string(from: date!)
+                let calendar = Calendar.current
+                
+                if (calendar.isDateInYesterday(date ?? Date())){
+                    return ("Yesterday, "+time)
+                } else if (calendar.isDateInToday(date ?? Date())){
+                    return ("Today, "+time)
+                } else if (calendar.isDateInTomorrow(date ?? Date())){
+                    return ("Tomorrow, "+time)
+                } else {
+                    return (goodDate + ", " + goodTime)
+                }
+                
+            } else {
+                return (goodDate + ", " + goodTime)
+            }
+        }
+        return ""
     }
 }
 

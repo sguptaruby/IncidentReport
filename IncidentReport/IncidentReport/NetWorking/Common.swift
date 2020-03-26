@@ -61,12 +61,8 @@ class Common: NSObject {
     @objc class func showLeftMenu()
     {
         
-        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil);
-
-        let newUser = Common.getBool(object: Common.getUserDefault(forKey: "newUser"), else: false)
-        if newUser != true  {
-            
-        }
+        APPDELEGATE.revealVC.revealToggle(animated: true)
+        
     }
     
     class func getBool(object: AnyObject?, else returnValue: Bool!) -> Bool {
@@ -301,6 +297,15 @@ extension UIView {
         label.numberOfLines = 0
         label.font = UIFont(name: "SFUITEXT-REGULAR", size: 17.0)
         tableView.backgroundView = label
+    }
+    
+    func addBackgroundLabel(collectionView: UICollectionView, text: String){
+        let label = UILabel(frame: CGRect(x:10, y:20, width:self.bounds.size.width-20, height:70))
+        label.textAlignment = .center
+        label.text = text
+        label.textColor = .black 
+        label.numberOfLines = 0
+        collectionView.backgroundView = label
     }
 }
 

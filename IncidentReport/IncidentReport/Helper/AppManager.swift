@@ -26,4 +26,5 @@ class AppManager {
     var arrImages = [UIImage]()
     var IncidentImageCount:String!
     var naviView: NavigationView!
+    var issue: IssueList!
 }
